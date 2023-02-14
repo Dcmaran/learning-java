@@ -19,16 +19,11 @@ public class Account {
 		return balance;
 	}
 	
-	public void setBalance(double balance) {
-		this.balance = balance;
-	}
-	
-	
-	public Account(int number, String name, double balance) {
+	public Account(int number, String name, double initialDeposit) {
 		super();
 		this.number = number;
 		this.name = name;
-		this.balance = balance;
+		deposit(initialDeposit);
 	}
 	
 	public Account(int number, String name) {
@@ -37,6 +32,15 @@ public class Account {
 		this.name = name;
 	}
 	
+	public void deposit(double amount) {
+		balance += amount;
+	}
+	
+	public void withdrawn(double amount) {
+		balance -= amount + 5.0;
+	}
+	
+		
 	@Override
 	public String toString() {
 		return "Account " + number + ", Holder: " + name + ", Balance: $ " + balance + "\n";
